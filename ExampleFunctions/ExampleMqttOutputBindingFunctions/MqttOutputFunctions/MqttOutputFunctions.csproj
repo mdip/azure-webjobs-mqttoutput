@@ -16,6 +16,6 @@
         </None>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding.csproj" />
+      <ProjectReference Include="..\..\..\WebJobs.Extensions.MqttOutputBinding.csproj" />
     </ItemGroup>
 </Project>

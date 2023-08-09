@@ -19,7 +19,7 @@ A WebJobs extension for MQTT output binding based on MQTTnet library and the Man
 
 This project is based on https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt.
 
-The repository contains the code for the Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding NuGet Package.
+The repository contains the code for the WebJobs.Extensions.MqttOutputBinding NuGet Package.
 This package enables you to publish a message to a MQTT topic as a result of an Azure Function.
 
 Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!

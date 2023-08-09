@@ -9,11 +9,16 @@
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/mdip/azure-webjobs-mqttoutput.git</RepositoryUrl>
     <PackageTags>mqtt outputbinding azurefunction azure functions webjobs function biding </PackageTags>
+    <RootNamespace>Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding</RootNamespace>
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="Readme.md" Pack="true" PackagePath="\"/>
+    <None Include="Readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.37" />

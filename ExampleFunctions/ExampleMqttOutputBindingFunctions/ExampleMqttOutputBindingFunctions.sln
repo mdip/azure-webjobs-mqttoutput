@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttOutputFunctions", "MqttOutputFunctions\MqttOutputFunctions.csproj", "{789F38E2-A291-4AFB-AB45-6966AB613488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding", "..\..\Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding.csproj", "{546CDE1C-CB22-48FD-B542-563ED599984D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobs.Extensions.MqttOutputBinding", "..\..\WebJobs.Extensions.MqttOutputBinding.csproj", "{546CDE1C-CB22-48FD-B542-563ED599984D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
