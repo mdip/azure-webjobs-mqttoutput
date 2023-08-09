@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Microsoft.Azure.WebJobs.Description;
 using MQTTnet.Extensions.ManagedClient;
 
@@ -8,6 +9,11 @@ namespace Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding.Binding
     [Binding]
     public class MqttAttribute : Attribute
     {
+        public MqttAttribute()
+        {
+            throw new InvalidEnumArgumentException(
+                $"{nameof(MqttAttribute)} empty constructor not allowed! Please provide an {nameof(ICustomConfigurationProvider)} implementation!");
+        }
         public MqttAttribute(Type clientOptionsType)
         {
             ClientOptionsType = clientOptionsType;

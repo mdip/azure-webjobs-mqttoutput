@@ -34,7 +34,7 @@ public static class Example
     [FunctionName("IMqttMessage")]
     public static IActionResult Run1(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "mqtt-message")] HttpRequest req, 
-        [Mqtt(typeof(CustomCustomConfigurationProvider))] out IMqttMessage outMessage, 
+        [Mqtt(typeof(CustomCustomConfigurationProvider))] out IMqttMessage outMessage,
         ILogger log)
     {
         outMessage = new MqttMessage(topic: "test", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
