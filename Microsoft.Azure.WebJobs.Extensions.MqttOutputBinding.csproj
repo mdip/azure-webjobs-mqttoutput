@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.37" />
+    <PackageReference Include="MQTTnet" Version="4.2.1.781" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="4.2.1.781" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ReferencePathWithRefAssemblies Update="\Users\0x3ff\.nuget\packages\netstandard.library\2.0.3\build\netstandard2.0\ref\System.Diagnostics.TraceSource.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\Properties\launchSettings.json">
+      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\Properties\launchSettings.json</Link>
+    </None>
+    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\.gitignore">
+      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\.gitignore</Link>
+    </None>
+    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\host.json">
+      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\host.json</Link>
+    </None>
+    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\local.settings.json">
+      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\local.settings.json</Link>
+    </None>
+    <None Remove="ExampleFunctions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\AsyncCollectorFunction.cs">
+      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\AsyncCollectorFunction.cs</Link>
+    </Compile>
+    <Compile Remove="ExampleFunctions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ExampleFunctions\**" />
+  </ItemGroup>
+
+    <PropertyGroup>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+</Project>
