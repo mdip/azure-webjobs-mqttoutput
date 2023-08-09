@@ -62,7 +62,6 @@ public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 }
 ```
 
-### Publish via output
 
 <!--
 ## Where to get
