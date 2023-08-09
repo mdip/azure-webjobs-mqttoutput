@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -17,27 +18,29 @@ namespace MqttOutputFunctions;
 
 public static class Example
 {
+    private const string Topic = "0x3ff/test/out";
+        
     [FunctionName("AsyncCollector")]
-    public static async Task<IActionResult> RunAsync(
+    public static async Task<IActionResult> RunAsyncCollector(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "async-collector")] HttpRequest req, 
         [Mqtt(typeof(CustomCustomConfigurationProvider))] IAsyncCollector<IMqttMessage> outMessages, 
         ILogger log)
     {
 
         await outMessages.AddAsync(
-            new MqttMessage(topic: "test", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
+            new MqttMessage(topic: Topic, message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
 
         return new OkObjectResult("Message Enqueued!");
     }
     
     
     [FunctionName("IMqttMessage")]
-    public static IActionResult Run1(
+    public static IActionResult RunIMqttMessage(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "mqtt-message")] HttpRequest req, 
         [Mqtt(typeof(CustomCustomConfigurationProvider))] out IMqttMessage outMessage,
         ILogger log)
     {
-        outMessage = new MqttMessage(topic: "test", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
+        outMessage = new MqttMessage(topic: Topic, message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
         
         return new OkObjectResult("Message Enqueued!");
     }
@@ -46,24 +49,24 @@ public static class Example
 
 public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 {
-    public ManagedMqttClientOptions ClientOptions
+    private static readonly ManagedMqttClientOptions ManagedMqttClientOptions = BuildClientOptions();
+    public ManagedMqttClientOptions ClientOptions => ManagedMqttClientOptions;
+
+    private static ManagedMqttClientOptions BuildClientOptions()
     {
-        get
-        {
-            ManagedMqttClientOptionsBuilder builder = new();
-            MqttClientOptionsBuilder clientOptionsBuilder = new();
-            clientOptionsBuilder
-                .WithTcpServer("server",1883)
-                .WithProtocolVersion(MqttProtocolVersion.V500)
-                .WithClientId("test")
-                .WithCredentials("user", "pass");
+        ManagedMqttClientOptionsBuilder builder = new();
+        MqttClientOptionsBuilder clientOptionsBuilder = new();
+        clientOptionsBuilder
+            .WithTcpServer("broker.hivemq.com",1883)
+            .WithProtocolVersion(MqttProtocolVersion.V500)
+            .WithClientId(Guid.NewGuid().ToString())
+            .WithCredentials("user", "pass");
                 
-            builder
-                .WithClientOptions(clientOptionsBuilder.Build())
-                ;
+        builder
+            .WithClientOptions(clientOptionsBuilder.Build())
+            ;
         
 
-            return builder.Build();
-        }
+        return builder.Build(); 
     }
 }

@@ -3,7 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <Title>https://github.com/mdip/azure-webjobs-mqttoutput</Title>
+    <Description>MQTT output binding for Azure functions, based on MQTTNet library and the Managed Client Extension, fully configurable by specifying your own client options.</Description>
+    <PackageProjectUrl>https://github.com/mdip/azure-webjobs-mqttoutput</PackageProjectUrl>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mdip/azure-webjobs-mqttoutput.git</RepositoryUrl>
+    <PackageTags>mqtt outputbinding azurefunction azure functions webjobs function biding </PackageTags>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="Readme.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.37" />
