@@ -66,7 +66,7 @@ public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 }
 ```
 
-## Publish with output binding examples
+### Publish with output binding examples
 
 This is a simple example, publishing messages on topic ```test/out```.
 
