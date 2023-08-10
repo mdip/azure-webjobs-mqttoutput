@@ -25,14 +25,15 @@ This package enables you to publish a message to a MQTT topic as a result of an 
 Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mdip/azure-webjobs-mqttoutput/blob/main/LICENSE)
+[![NuGet](https://img.shields.io/nuget/v/WebJobs.Extensions.MQTT.OutputBinding.svg)](https://www.nuget.org/packages/WebJobs.Extensions.MQTT.OutputBinding/)
 
 ## How to use
 
 ### Getting Started
 
-1) Create a custom configuration for the output binding by implementing the ```ICustomConfigurationProvider``` and defining your own MQTT client options. 
-2) Use the output binding attribute ```[Mqtt]``` with the custom configuration passing its type to attribute. 
-For example, if your configuration class is named ```MyCustomConfiguration``` the attribute should be used like this: ```[Mqtt(typeof(MyCustomConfiguration))]```.
+1) Create a custom configuration for the output binding by implementing the ```ICustomConfigurationProvider``` and defining your own MQTT client options.
+2) Use the output binding attribute ```[Mqtt]``` with the custom configuration passing its type to attribute.
+   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute should be used like this: ```[Mqtt(typeof(MyCustomConfiguration))]```.
 3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client.
 
 ### Custom Configuration Example
@@ -107,5 +108,3 @@ Please find all working examples in the [sample project](./ExampleFunctions).
 
 - [MQTTnet](https://github.com/chkr1011/MQTTnet)
 - [WebJobs custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
-
-
