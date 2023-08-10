@@ -63,20 +63,7 @@ public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 }
 ```
 
-
-<!--
-## Where to get
-
-Install stable releases via Nuget; development releases are available via MyGet.
-
-|                     | Master > NuGet | Dev > MyGet |
-|--------------------------------|-----------------|-----------------|
-| Build status |  [![Build Status](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_apis/build/status/CaseOnline.Azure.WebJobs.Extensions.Mqtt?branchName=master)](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_build/index?definitionId=11)   | [![Build Status](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_apis/build/status/CaseOnline.Azure.WebJobs.Extensions.Mqtt?branchName=dev)](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_build/index?definitionId=11)
-| Deployment Status | [![Deployment Status](https://caseonline.vsrm.visualstudio.com/_apis/public/Release/badge/4df87c38-5691-4d04-8373-46c830209b7e/1/2)](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_releases2?definitionId=1)|[![Deployment Status](https://caseonline.vsrm.visualstudio.com/_apis/public/Release/badge/4df87c38-5691-4d04-8373-46c830209b7e/1/3)](https://caseonline.visualstudio.com/CaseOnline.Azure.WebJobs.Extensions.Mqtt/_releases2?definitionId=1)|
-| Package | [![NuGet](https://img.shields.io/nuget/v/CaseOnline.Azure.WebJobs.Extensions.Mqtt.svg)](https://www.nuget.org/packages/CaseOnline.Azure.WebJobs.Extensions.Mqtt/) | [![MyGet](https://img.shields.io/myget/caseonline/v/CaseOnline.Azure.WebJobs.Extensions.Mqtt.svg)](https://www.myget.org/feed/caseonline/package/nuget/CaseOnline.Azure.WebJobs.Extensions.Mqtt) | 
--->
-
-## Examples
+## Publish with output binding examples
 
 This is a simple example, publishing messages on topic ```test/out```.
 
@@ -117,5 +104,6 @@ Please find all working examples in the [sample project](./ExampleFunctions).
 ## References
 
 - [MQTTnet](https://github.com/chkr1011/MQTTnet)
+- [WebJobs custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
 
 
