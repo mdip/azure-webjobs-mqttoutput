@@ -68,7 +68,7 @@ public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 
 ### Publish with output binding examples
 
-This is a simple example, publishing messages on topic ```test/out```.
+Publishing messages on topic ```test/out```.
 
 ``` csharp
 public static class Example
