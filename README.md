@@ -24,6 +24,8 @@ This package enables you to publish a message to a MQTT topic as a result of an 
 
 Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mdip/azure-webjobs-mqttoutput/blob/main/LICENSE)
+
 ## How to use
 
 ### Getting Started
