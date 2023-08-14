@@ -109,3 +109,4 @@ Please find all working examples in the [sample project](./ExampleFunctions).
 - [MQTTnet](https://github.com/chkr1011/MQTTnet)
 - [WebJobs custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
 - [Custom bindings with isolated worker](https://blog.maartenballiauw.be/post/2021/06/01/custom-bindings-with-azure-functions-dotnet-isolated-worker.html)
+- [Public MQTT Broker for tests](https://www.hivemq.com/public-mqtt-broker/)
