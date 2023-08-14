@@ -33,8 +33,8 @@ Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 
 1) Create a custom configuration for the output binding by implementing the ```ICustomConfigurationProvider``` and defining your own MQTT client options.
 2) Use the output binding attribute ```[Mqtt]``` with the custom configuration passing its type to attribute.
-   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute should be used like this: ```[Mqtt(typeof(MyCustomConfiguration))]```.
-3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client.
+   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute usage should be used like this: ```[Mqtt(typeof(MyCustomConfiguration))]```.
+3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client. See the examples for more.
 
 ### Custom Configuration Example
 ```ClientOptions``` property must not be null. The following example shows hot to create a custom configuration.
@@ -109,3 +109,4 @@ Please, see the examples in the [sample project](./ExampleFunctions).
 - [MQTTnet](https://github.com/chkr1011/MQTTnet)
 - [WebJobs custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
 - [Custom bindings with isolated worker](https://blog.maartenballiauw.be/post/2021/06/01/custom-bindings-with-azure-functions-dotnet-isolated-worker.html)
+- [Public MQTT Broker for tests](https://www.hivemq.com/public-mqtt-broker/)
