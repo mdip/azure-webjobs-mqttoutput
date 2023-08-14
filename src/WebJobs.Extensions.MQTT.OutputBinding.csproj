@@ -6,7 +6,7 @@
     <Title>https://github.com/mdip/azure-webjobs-mqttoutput</Title>
     <Description>MQTT output binding for Azure functions, based on MQTTNet library and the Managed Client Extension, fully configurable by specifying your own client options.</Description>
     <PackageProjectUrl>https://github.com/mdip/azure-webjobs-mqttoutput</PackageProjectUrl>
-<!--    <PackageReadmeFile>Readme.md</PackageReadmeFile>-->
+    <!--<PackageReadmeFile>Readme.md</PackageReadmeFile>-->
     <RepositoryUrl>https://github.com/mdip/azure-webjobs-mqttoutput.git</RepositoryUrl>
     <PackageTags>mqtt output binding outputbinding azurefunction azure functions webjobs function biding function</PackageTags>
     <RootNamespace>Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding</RootNamespace>
@@ -15,6 +15,8 @@
   
   <ItemGroup>
     <None Include="Readme.md" Pack="true" PackagePath="\" />
+    <None Remove="ExampleFunctions\**" />
+    <None Remove="tests\**" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -32,34 +34,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\Properties\launchSettings.json">
-      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\Properties\launchSettings.json</Link>
-    </None>
-    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\.gitignore">
-      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\.gitignore</Link>
-    </None>
-    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\host.json">
-      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\host.json</Link>
-    </None>
-    <None Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\local.settings.json">
-      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\local.settings.json</Link>
-    </None>
-    <None Remove="ExampleFunctions\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="ExampleFunctions\ExampleMqttOutputBindingFunctions\MqttOutputFunctions\AsyncCollectorFunction.cs">
-      <Link>ExampleFunctions\ExampleMqttOutputBindingFunctions\AsyncCollectorFunctionApp\AsyncCollectorFunction.cs</Link>
-    </Compile>
     <Compile Remove="ExampleFunctions\**" />
+    <Compile Remove="tests\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="ExampleFunctions\**" />
+    <EmbeddedResource Remove="tests\**" />
   </ItemGroup>
-
-    <PropertyGroup>
-		<LangVersion>latest</LangVersion>
-	</PropertyGroup>
+  
+  <PropertyGroup>
+      <LangVersion>latest</LangVersion>
+  </PropertyGroup>
 
 </Project>
