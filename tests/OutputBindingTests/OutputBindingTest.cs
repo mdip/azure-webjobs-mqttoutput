@@ -21,7 +21,6 @@ namespace OutputBindingTests
     {
         private const string  Topic = "0x3ff/test/out";
         private const string PayloadMessage = "TestMessage";
-
         
         [Fact]
         public async Task SimpleMessageIsPublished()
