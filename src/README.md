@@ -43,8 +43,8 @@ In this example a private static property has been used in order to build the co
 ``` csharp
 public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 {
-    private static readonly ManagedMqttClientOptions ManagedMqttClientOptions = BuildClientOptions();
-    public ManagedMqttClientOptions ClientOptions => ManagedMqttClientOptions;
+    private static readonly ManagedMqttClientOptions _managedMqttClientOptions = BuildClientOptions();
+    public ManagedMqttClientOptions ClientOptions => _managedMqttClientOptions;
 
     private static ManagedMqttClientOptions BuildClientOptions()
     {
