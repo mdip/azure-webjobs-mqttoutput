@@ -37,7 +37,7 @@ Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client.
 
 ### Custom Configuration Example
-```ClientOptions``` property must not be null. The following example shows hot to create a custom configuration.
+```ClientOptions``` property must not be null. The following example shows how to create a custom configuration.
 In this example a private static property has been used in order to build the configuration only once.
 
 ``` csharp
