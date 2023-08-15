@@ -11,7 +11,7 @@
     <PackageTags>mqtt output binding outputbinding azurefunction azure functions webjobs function extension</PackageTags>
     <RootNamespace>Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding</RootNamespace>
     <AssemblyName>WebJobs.Extensions.MQTT.OutputBinding</AssemblyName>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
   
   <ItemGroup>
