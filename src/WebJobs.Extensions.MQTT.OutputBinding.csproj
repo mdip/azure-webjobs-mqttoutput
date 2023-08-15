@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/mdip/azure-webjobs-mqttoutput</PackageProjectUrl>
     <!--<PackageReadmeFile>Readme.md</PackageReadmeFile>-->
     <RepositoryUrl>https://github.com/mdip/azure-webjobs-mqttoutput.git</RepositoryUrl>
-    <PackageTags>mqtt output binding outputbinding azurefunction azure functions webjobs function biding function</PackageTags>
+    <PackageTags>mqtt output binding outputbinding azurefunction azure functions webjobs function extension</PackageTags>
     <RootNamespace>Microsoft.Azure.WebJobs.Extensions.MqttOutputBinding</RootNamespace>
     <AssemblyName>WebJobs.Extensions.MQTT.OutputBinding</AssemblyName>
     <Version>1.0.3</Version>
