@@ -50,8 +50,6 @@ namespace OutputBindingTests
 
                     await managedMqttClient.StartAsync(new MqttCustomCustomConfigurationProvider().ClientOptions);
 
-                    await Task.Delay(3000);
-
                     await managedMqttClient.SubscribeAsync(Topic);
                     
                     // Act
@@ -59,11 +57,11 @@ namespace OutputBindingTests
                     {
                         ["req"] = new DummyHttpRequest()
                     });
-                    
+
+                    // Wait some seconds to consume the incoming message before disposing the client
+                    await Task.Delay(5000);
                 }
             }
-
-            await Task.Delay(5000);
 
             Assert.Equal(PayloadMessage, receivedMessage);
             
