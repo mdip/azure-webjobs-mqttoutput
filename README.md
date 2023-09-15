@@ -101,7 +101,7 @@ public static class Example
 
 ```
 
-Please, see the examples in the [sample project](./ExampleFunctions).
+Please, see the examples in the [sample project](./src/ExampleFunctions).
 
 
 ## References
