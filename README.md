@@ -33,17 +33,17 @@ Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 
 1) Create a custom configuration for the output binding by implementing the ```ICustomConfigurationProvider``` and defining your own MQTT client options.
 2) Use the output binding attribute ```[Mqtt]``` with the custom configuration passing its type to attribute.
-   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute usage should be used like this: ```[Mqtt(typeof(MyCustomConfiguration))]```.
+   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute usage should be used like this: ```[Mqtt(typeof(MqttCustomConfiguration))]```.
 3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client. See the examples for more.
 
-### Custom Configuration Example
+### Custom Configuration
 ```ClientOptions``` property must not be null. The following example shows how to create a custom configuration.
 In this example a private static property has been used in order to build the configuration only once.
 
 ``` csharp
-public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
+public class MqttCustomConfigurationProvider : ICustomConfigurationProvider
 {
-    private static readonly ManagedMqttClientOptions _managedMqttClientOptions = BuildClientOptions();
+    private static readonly ManagedMqttClientOptions managedMqttClientOptions = BuildClientOptions();
     public ManagedMqttClientOptions ClientOptions => _managedMqttClientOptions;
 
     private static ManagedMqttClientOptions BuildClientOptions()
@@ -66,7 +66,7 @@ public class CustomCustomConfigurationProvider : ICustomConfigurationProvider
 }
 ```
 
-### Publish with output binding examples
+### Publish via output binding
 
 Publishing messages on topic ```test/out```.
 
@@ -76,12 +76,12 @@ public static class Example
     [FunctionName("AsyncCollector")]
     public static async Task<IActionResult> RunAsyncCollector(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "async-collector")] HttpRequest req, 
-        [Mqtt(typeof(CustomCustomConfigurationProvider))] IAsyncCollector<IMqttMessage> outMessages, 
+        [Mqtt(typeof(MqttCustomConfigurationProvider))] IAsyncCollector<IMqttMessage> outMessages, 
         ILogger log)
     {
 
         await outMessages.AddAsync(
-            new MqttMessage(topic: "test/out", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
+            new MqttMessage(topic: "test/out", message: new ArraySegment<string>(Encoding.UTF8.GetBytes("hello")), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
 
         return new OkObjectResult("Message Enqueued!");
     }
@@ -89,10 +89,10 @@ public static class Example
     [FunctionName("IMqttMessage")]
     public static IActionResult RunSingleMessage(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "mqtt-message")] HttpRequest req, 
-        [Mqtt(typeof(CustomCustomConfigurationProvider))] out IMqttMessage outMessage,
+        [Mqtt(typeof(MqttCustomConfigurationProvider))] out IMqttMessage outMessage,
         ILogger log)
     {
-        outMessage = new MqttMessage(topic: "test/out", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
+        outMessage = new MqttMessage(topic: "test/out", message: new ArraySegment<string>(Encoding.UTF8.GetBytes("hello")), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
         
         return new OkObjectResult("Message Enqueued!");
     }
