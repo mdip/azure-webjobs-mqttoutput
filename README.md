@@ -44,7 +44,7 @@ In this example a private static property has been used in order to build the co
 public class MqttCustomConfigurationProvider : ICustomConfigurationProvider
 {
     private static readonly ManagedMqttClientOptions managedMqttClientOptions = BuildClientOptions();
-    public ManagedMqttClientOptions ClientOptions => _managedMqttClientOptions;
+    public ManagedMqttClientOptions ClientOptions => managedMqttClientOptions;
 
     private static ManagedMqttClientOptions BuildClientOptions()
     {
