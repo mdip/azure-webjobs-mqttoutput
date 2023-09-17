@@ -33,7 +33,7 @@ Are you curious what MQTT is? Check [this page](http://mqtt.org/faq)!
 
 1) Create a custom configuration for the output binding by implementing the ```ICustomConfigurationProvider``` and defining your own MQTT client options.
 2) Use the output binding attribute ```[Mqtt]``` with the custom configuration passing its type to attribute.
-   For example, if your configuration class is named ```MyCustomConfiguration``` the attribute usage should be used like this: ```[Mqtt(typeof(MqttCustomConfiguration))]```.
+   For example, if your configuration class is named ```MqttCustomConfigurationProvider``` the attribute usage should be used like this: ```[Mqtt(typeof(MqttCustomConfigurationProvider))]```.
 3) In your azure function you'll be able to publish a new message with a fully custom configurable MQTT client. See the examples for more.
 
 ### Custom Configuration
