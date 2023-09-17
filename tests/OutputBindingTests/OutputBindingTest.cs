@@ -48,7 +48,7 @@ namespace OutputBindingTests
                         return Task.CompletedTask;
                     };
 
-                    await managedMqttClient.StartAsync(new MqttCustomCustomConfigurationProvider().ClientOptions);
+                    await managedMqttClient.StartAsync(new MqttCustomConfigurationProvider().ClientOptions);
 
                     await managedMqttClient.SubscribeAsync(Topic);
                     
@@ -59,7 +59,7 @@ namespace OutputBindingTests
                     });
 
                     // Wait some seconds to consume the incoming message before disposing the client
-                    await Task.Delay(5000);
+                    await Task.Delay(10000);
                 }
             }
 
@@ -68,7 +68,7 @@ namespace OutputBindingTests
         }
     }
     
-    public class MqttCustomCustomConfigurationProvider : ICustomConfigurationProvider
+    public class MqttCustomConfigurationProvider : ICustomConfigurationProvider
     {
         private static readonly ManagedMqttClientOptions ManagedMqttClientOptions = BuildClientOptions();
         public ManagedMqttClientOptions ClientOptions => ManagedMqttClientOptions;
@@ -80,7 +80,7 @@ namespace OutputBindingTests
             clientOptionsBuilder
                 .WithTcpServer("broker.hivemq.com", 1883)
                 .WithProtocolVersion(MqttProtocolVersion.V500)
-                .WithClientId($"test-{Guid.NewGuid().ToString()}");
+                .WithClientId($"test-{Guid.NewGuid()}");
                 
             builder.WithClientOptions(clientOptionsBuilder.Build());
             
@@ -97,9 +97,9 @@ namespace OutputBindingTests
 
         public static IActionResult RunTest(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
-            [Mqtt(typeof(MqttCustomCustomConfigurationProvider))] out IMqttMessage mqttMessage)
+            [Mqtt(typeof(MqttCustomConfigurationProvider))] out IMqttMessage mqttMessage)
         {
-            mqttMessage = new MqttMessage(Topic, new ArraySegment<byte>(Encoding.UTF8.GetBytes(PayloadMessage)), MqttQualityOfServiceLevel.AtLeastOnce, true);
+            mqttMessage = new MqttMessage(Topic, new ArraySegment<byte>(Encoding.UTF8.GetBytes(PayloadMessage)), MqttQualityOfServiceLevel.ExactlyOnce, true);
 
             return new OkResult();
         }
