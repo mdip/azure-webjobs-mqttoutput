@@ -81,7 +81,7 @@ public static class Example
     {
 
         await outMessages.AddAsync(
-            new MqttMessage(topic: "test/out", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
+            new MqttMessage(topic: "test/out", message: new ArraySegment<byte>(Encoding.UTF8.GetBytes("hello")), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false));
 
         return new OkObjectResult("Message Enqueued!");
     }
@@ -92,7 +92,7 @@ public static class Example
         [Mqtt(typeof(CustomCustomConfigurationProvider))] out IMqttMessage outMessage,
         ILogger log)
     {
-        outMessage = new MqttMessage(topic: "test/out", message: Encoding.UTF8.GetBytes("hello"), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
+        outMessage = new MqttMessage(topic: "test/out", message: new ArraySegment<byte>(Encoding.UTF8.GetBytes("hello")), qosLevel: MqttQualityOfServiceLevel.AtMostOnce, retain: false);
         
         return new OkObjectResult("Message Enqueued!");
     }
