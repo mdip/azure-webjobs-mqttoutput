@@ -1,4 +1,4 @@
-## Warning! This project has been archived since the In-Process model for Azure functions will be deprecated soon. See [](https://learn.microsoft.com/en-us/azure/azure-functions/migrate-dotnet-to-isolated-model).
+## Warning! This project has been archived since the In-Process model for Azure functions will be deprecated soon. See [https://learn.microsoft.com/en-us/azure/azure-functions/migrate-dotnet-to-isolated-model](https://learn.microsoft.com/en-us/azure/azure-functions/migrate-dotnet-to-isolated-model).
 
 ```
                   %%%%%%
